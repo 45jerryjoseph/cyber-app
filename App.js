@@ -13,6 +13,9 @@ import { auth } from "./firebaseConfig";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
 import Settings from './screens/Settings';
+import Splash from './screens/Splash'
+import { TailwindProvider } from 'tailwind-rn';
+import  utilities  from './tailwind.json';
 
 // Initialize the WebBrowser
 //This is basically going to capture when user wants to login
@@ -88,10 +91,18 @@ export default function App() {
           <ActivityIndicator size={'large'} />
         </View>
     )
-  return userInfo ? <>
-    <Settings />
-  </>:
-    
-    <SignInScreen promptAsync={promptAsync}/>
-  ;
+  return(
+    <TailwindProvider utilities={utilities}>
+        { userInfo ? <>
+          <Settings />
+        </>:
+          
+          <SignInScreen promptAsync={promptAsync}/>
+        
+        }
+
+        {/* <Splash /> */}
+    </TailwindProvider>
+  )
+
 }
