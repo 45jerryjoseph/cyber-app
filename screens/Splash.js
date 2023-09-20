@@ -1,19 +1,28 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
 import LottieView from 'lottie-react-native'
+import animationData from "../assets/cyber.json"
 
 const Splash = () => {
   return (
-    <View style={{flex: 1, alignItems: "center", margin: 0}}>
+    <>
+    <SafeAreaView style={{ flex: 1, alignItems: "center",justifyContent: "center"}}>
+
       <LottieView  
-        source={require("../assets/animation_lmpx369n.json")}
+        source={animationData}
         autoPlay
         loop={true}
         resizeMode='cover'
         // onAnimationFinish={}
+        onError={error => console.log('Lottie Error:', error)}
 
-      />
-    </View>
+        // style={{flex: 1}}
+        
+        />
+      <Text>Terrerrerrer</Text>
+      <Text>Terrerrerrer</Text>
+    </SafeAreaView>
+    </>
   )
 }
 

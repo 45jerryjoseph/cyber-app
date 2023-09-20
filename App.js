@@ -1,5 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import SignInScreen from './screens/SignInScreen';
 //We are implementing HOC Higher Order Component
 import * as Google from "expo-auth-session/providers/google"; //we can access all google actions from then
@@ -16,10 +16,15 @@ import Settings from './screens/Settings';
 import Splash from './screens/Splash'
 import { TailwindProvider } from 'tailwind-rn';
 import  utilities  from './tailwind.json';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from "./screens/Home";
+import Login from "./screens/Login"
+import Signup from "./screens/Signup"
 // Initialize the WebBrowser
 //This is basically going to capture when user wants to login
 WebBrowser.maybeCompleteAuthSession()
+const Stack = createNativeStackNavigator();
 
 
 export default function App() {
@@ -93,15 +98,23 @@ export default function App() {
     )
   return(
     <TailwindProvider utilities={utilities}>
-        { userInfo ? <>
+        {/* { userInfo ? <>
           <Settings />
         </>:
           
           <SignInScreen promptAsync={promptAsync}/>
         
-        }
-
+        } */}
+  
         {/* <Splash /> */}
+        {/* <Text>Page here Testing</Text> */}
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Signup" component={Signup} />
+            <Stack.Screen name="Login" component={Login} />
+          </Stack.Navigator>
+        </NavigationContainer>
     </TailwindProvider>
   )
 
