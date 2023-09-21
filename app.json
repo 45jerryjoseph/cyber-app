@@ -16,14 +16,17 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.j3j.cyberapp"
+      "bundleIdentifier": "com.j3j.cyberapp",
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "useFrameworks": "static"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.j3j.cyberapp"
+      "package": "com.j3j.cyberapp",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -33,6 +36,13 @@
         "projectId": "e640ecbe-2cc1-45c5-95e1-451de5244c7b"
       }
     },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/perf",
+      "@react-native-firebase/crashlytics",
+      "expo-build-properties"
+     
+    ],
     "scheme":"cyber-app"
   }
 }

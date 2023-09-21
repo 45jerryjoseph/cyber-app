@@ -25,7 +25,7 @@ const Login = (props) => {
             // width: 460,
             paddingTop: 100,
             alignItems: 'center',
-            backgroundColor: 'rgba(255,255,255, 0.3)',
+            backgroundColor: 'rgba(255,255,255, 0.4)',
             width: 586,
             height: 1150,
             // borderTopLeftRadius: 130,
